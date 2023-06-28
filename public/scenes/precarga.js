@@ -20,7 +20,8 @@ export default class precarga extends Phaser.Scene {
       this.load.image("botonAjustes", "./public/assets/botonAjustes.png");
       this.load.image("mate", "./public/assets/mate.png");
       this.load.image("enemigo", "./public/assets/gato2.png");
-      
+      this.load.image("win", "./public/assets/ganar.jpeg");
+      this.load.image("gameover", "./public/assets/perder.jpeg");
       this.load.spritesheet("gato", "./public/assets/gato.png", {
         frameWidth: 32,
         frameHeight: 48,
