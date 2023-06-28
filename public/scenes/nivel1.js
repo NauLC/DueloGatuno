@@ -20,16 +20,16 @@ export default class nivel1 extends Phaser.Scene {
       // todo / para hacer: texto de puntaje
       const map = this.make.tilemap({ key: "map" });
       console.log(this.cantEstrellas);
-      const capaFondo = map.addTilesetImage("fondo2.0", "tilesFondo");
-      const capaPlataform = map.addTilesetImage(
+      const capaFondo = map.addTilesetImage("fondo", "fondo");
+      const capaPlataforma = map.addTilesetImage(
         "platforma",
-        "tilesPlataforma"
+        "plataforma"
       );
   
       
       const fondoLayer = map.createLayer("fondo", capaFondo, 0, 0);
-      const plataformaLayer = map.createLayer("platforma", capaPlataform, 0, 0);
-      const objectosLayer = map.getObjectLayer("objects");
+      const plataformaLayer = map.createLayer("platforma", capaPlataforma, 0, 0);
+      const objectosLayer = map.getObjectLayer("objetos");
   
       plataformaLayer.setCollisionByProperty({ collision: true });
   
@@ -37,10 +37,10 @@ export default class nivel1 extends Phaser.Scene {
   
       // crear el jugador
       // Find in the Object Layer, the name "dude" and get position
-      let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
+      let spawnPoint = map.findObject("objetos", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
-      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gato");
+      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatoN");
   
       //  Player physics properties. Give the little guy a slight bounce.
       this.jugador.setBounce(0.1);

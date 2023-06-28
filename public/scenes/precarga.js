@@ -18,12 +18,16 @@ export default class Precarga extends Phaser.Scene {
       this.load.image("botompress", "./public/assets/botompress.png");
       this.load.image("botonAjustes", "./public/assets/botonAjustes.png");
       this.load.image("mate", "./public/assets/mate.png");
-
-      this.load.spritesheet("gato", "./public/images/spritesheet.png", {
+      this.load.image("plataforma", "./public/assets/plataforma.png");
+      this.load.image("fondo", "./public/assets/fondo.png");
+      this.load.spritesheet("gatoN", "./public/assets/gatoNaranja.png", {
         frameWidth: 32,
         frameHeight: 48,
       });
-
+      this.load.spritesheet("gatoG", "./public/assets/gatoGris.png", {
+        frameWidth: 32,
+        frameHeight: 48,
+      });
     }
   
     create() {
