@@ -20,15 +20,15 @@ export default class nivel1 extends Phaser.Scene {
       // todo / para hacer: texto de puntaje
       const map = this.make.tilemap({ key: "map" });
       console.log(this.cantEstrellas);
-      const capaFondo = map.addTilesetImage("fondo2.0", "tilesFondo");
-      const capaPlataform = map.addTilesetImage(
+      const capaFondo = map.addTilesetImage("fondo2.0", "fondo");
+      const capaPlataforma= map.addTilesetImage(
         "platforma",
-        "tilesPlataforma"
+        "capaPlataforma"
       );
   
       
       const fondoLayer = map.createLayer("fondo", capaFondo, 0, 0);
-      const plataformaLayer = map.createLayer("platforma", capaPlataform, 0, 0);
+      const plataformaLayer = map.createLayer("platforma", capaPlataforma, 0, 0);
       const objectosLayer = map.getObjectLayer("objects");
   
       plataformaLayer.setCollisionByProperty({ collision: true });
@@ -40,9 +40,9 @@ export default class nivel1 extends Phaser.Scene {
       let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
-      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gato");
+      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatoN");
   
-      //  Player physics properties. Give the little guy a slight bounce.
+      
       this.jugador.setBounce(0.1);
       this.jugador.setCollideWorldBounds(true);
   
@@ -216,7 +216,7 @@ export default class nivel1 extends Phaser.Scene {
   
     esVencedor(jugador, salida) {
       
-      // sacamos la condicion porque esta puesta como 4to parametro en el overlap
+      
   
       //console.log("bolas recolectadas", this.cantBolas);
   

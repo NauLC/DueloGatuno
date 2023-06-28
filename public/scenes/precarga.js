@@ -18,11 +18,17 @@ export default class Precarga extends Phaser.Scene {
       this.load.image("botompress", "./public/assets/botompress.png");
       this.load.image("botonAjustes", "./public/assets/botonAjustes.png");
       this.load.image("mate", "./public/assets/mate.png");
-
-      this.load.spritesheet("gato", "./public/images/spritesheet.png", {
+      this.load.image("plataforma", "./public/assets/plataforma.png");
+      this.load.image("fondo", "./public/assets/fondo2.0.png");
+      this.load.spritesheet("gatoN", "./public/assets/gatoNaranja.png", {
         frameWidth: 32,
         frameHeight: 48,
       });
+      this.load.spritesheet("gatoG", "./public/assets/gatoGris.png", {
+        frameWidth: 32,
+        frameHeight: 48,
+      })
+      
 
     }
   
@@ -32,25 +38,25 @@ export default class Precarga extends Phaser.Scene {
       
       this.anims.create({
         key: "left",
-        frames: this.anims.generateFrameNumbers("gato", { start: 0, end: 3 }),
+        frames: this.anims.generateFrameNumbers("gatoN", { start: 0, end: 3 }),
         frameRate: 10,
         repeat: -1,
       });
   
       this.anims.create({
         key: "turn",
-        frames: [{ key: "gato", frame: 4 }],
+        frames: [{ key: "gatoN", frame: 4 }],
         frameRate: 20,
       });
   
       this.anims.create({
         key: "right",
-        frames: this.anims.generateFrameNumbers("gato", { start: 5, end: 8 }),
+        frames: this.anims.generateFrameNumbers("gatoN", { start: 5, end: 8 }),
         frameRate: 10,
         repeat: -1,
       });
   
       // init scene juego
-      this.scene.start("menu");
+      this.scene.start("nivel1");
     }
   }
