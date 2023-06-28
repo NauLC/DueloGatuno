@@ -19,11 +19,11 @@ export default class nivel1 extends Phaser.Scene {
     create() {
       // todo / para hacer: texto de puntaje
       const map = this.make.tilemap({ key: "map" });
-      console.log(this.cantEstrellas);
-      const capaFondo = map.addTilesetImage("fondo2.0", "fondo");
-      const capaPlataforma= map.addTilesetImage(
+      
+      const capaFondo = map.addTilesetImage("fondo2.0", "tilesfondo");
+      const capaPlataforma = map.addTilesetImage(
         "platforma",
-        "capaPlataforma"
+        "tilesPlataforma"
       );
   
       
@@ -37,7 +37,7 @@ export default class nivel1 extends Phaser.Scene {
   
       // crear el jugador
       // Find in the Object Layer, the name "dude" and get position
-      let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
+      let spawnPoint = map.findObject("objetos", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
       this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatoN");
@@ -74,8 +74,7 @@ export default class nivel1 extends Phaser.Scene {
         const { x = 0, y = 0, name } = objData;
         switch (name) {
           case "bola": {
-            // add star to scene
-            // console.log("estrella agregada: ", x, y);
+            
             const bola = this.bolas.create(x, y, "bola");
             break;
           }
