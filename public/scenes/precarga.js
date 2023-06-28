@@ -8,19 +8,20 @@ export default class precarga extends Phaser.Scene {
   
     preload() {
       // load assets
-      this.load.tilemapTiledJSON("map", "./public/tilemap/level1.json");
+      this.load.tilemapTiledJSON("map", "./public/tilemap/basic.json");
       this.load.image("bola", "./public/assets/bola.png");
       this.load.image("menu", "./public/assets/menu.png");
       this.load.image("plato", "./public/assets/plato.png");
       this.load.image("cuchillo", "./public/assets/cuchillo.png");
-      
+      this.load.image("tilesPlataforma", "./public/assets/platform_atlass.png");
+      this.load.image("tilesFondo", "./public/assets/fondo.png");
       this.load.image("botomcredito", "./public/assets/botomcredito.png");
       this.load.image("botompress", "./public/assets/botompress.png");
       this.load.image("botonAjustes", "./public/assets/botonAjustes.png");
       this.load.image("mate", "./public/assets/mate.png");
-      this.load.image("fondo", "./public/assets/fondo.png");
-      this.load.image("plataforma", "./public/assets/plataforma.png");
-      this.load.spritesheet("gatoN", "./public/assets/gatoN.png", {
+      this.load.image("enemigo", "./public/assets/gato2.png");
+      
+      this.load.spritesheet("gato", "./public/assets/gato.png", {
         frameWidth: 32,
         frameHeight: 48,
       });
@@ -33,25 +34,25 @@ export default class precarga extends Phaser.Scene {
       
       this.anims.create({
         key: "left",
-        frames: this.anims.generateFrameNumbers("gatoN", { start: 0, end: 3 }),
+        frames: this.anims.generateFrameNumbers("gato", { start: 0, end: 3 }),
         frameRate: 10,
         repeat: -1,
       });
   
       this.anims.create({
         key: "turn",
-        frames: [{ key: "gatoN", frame: 4 }],
+        frames: [{ key: "gato", frame: 4 }],
         frameRate: 20,
       });
   
       this.anims.create({
         key: "right",
-        frames: this.anims.generateFrameNumbers("gatoN", { start: 5, end: 8 }),
+        frames: this.anims.generateFrameNumbers("gato", { start: 5, end: 8 }),
         frameRate: 10,
         repeat: -1,
       });
   
       // init scene juego
-      this.scene.start("nivel1");
+      this.scene.start("menu");
     }
   }

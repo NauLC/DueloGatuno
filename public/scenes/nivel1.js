@@ -22,7 +22,7 @@ export default class nivel1 extends Phaser.Scene {
       
       const capaFondo = map.addTilesetImage("fondo", "tilesFondo");
     const capaPlataform = map.addTilesetImage(
-      "platforma",
+      "platform_atlass",
       "tilesPlataforma"
     );
 
@@ -40,9 +40,7 @@ export default class nivel1 extends Phaser.Scene {
       let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
-      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatoN");
-  
-      
+      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gato");
       this.jugador.setBounce(0.1);
       this.jugador.setCollideWorldBounds(true);
   
@@ -74,7 +72,6 @@ export default class nivel1 extends Phaser.Scene {
         const { x = 0, y = 0, name } = objData;
         switch (name) {
           case "bola": {
-            
             const bola = this.bolas.create(x, y, "bola");
             break;
           }
@@ -83,7 +80,7 @@ export default class nivel1 extends Phaser.Scene {
             break;
           }
           case "enemigo": {
-            const enemigo = this.enemigos.create(x, y, "enemigo").setBounce(1, 1).setScale(0.090);
+            const enemigo = this.enemigos.create(x, y, "enemigo").setBounce(1, 1).setScale(2);
             break;
           }
         }
@@ -103,20 +100,20 @@ export default class nivel1 extends Phaser.Scene {
       this.physics.add.collider(
         this.jugador,
         this.bolas,
-        this.recolectarbolas,
+        this.recolectarBolas,
         null,
         this
       );
-      if (this.salida) {
-        this.physics.add.collider(this.salida, plataformaLayer);
-        this.physics.add.overlap(
-          this.jugador,
-          this.salida,
-          this.esVencedor,
-          () => this.cantEstrellas >= 1, // condicion de ejecucion
-          this
-        );
-      }
+      //if (this.salida) {
+        //this.physics.add.collider(this.salida, plataformaLayer);
+        //this.physics.add.overlap(
+          //this.jugador,
+          //this.salida,
+          //this.esVencedor,
+          //() => this.cantBolas >= 1, // condicion de ejecucion
+          //this
+        //);
+      //}
       this.physics.add.collider(this.enemigos, plataformaLayer);
     this.physics.add.collider(
       this.jugador,
@@ -191,7 +188,7 @@ export default class nivel1 extends Phaser.Scene {
     }
   
     recolectarBola(jugador, bolas) {
-      this.bolas.disableBody(true, true);
+      bolas.disableBody(true, true);
   
       // todo / para hacer: sumar puntaje
       
@@ -199,10 +196,10 @@ export default class nivel1 extends Phaser.Scene {
         this.salida.visible = true;
       }
   
-      this.cantBolas++;
+      this.cantidadBolas++;
   
       this.cantidadBolasTexto.setText(
-        "Bolas recolectadas: " + this.cantBolas
+        "Bolas recolectadas: " + this.cantidadBolas
       );
     }
     platokill(jugador, platos) {
@@ -217,7 +214,7 @@ export default class nivel1 extends Phaser.Scene {
       
       
   
-      //console.log("bolas recolectadas", this.cantBolas);
+      console.log("bolas recolectadas", this.cantBolas);
   
       this.scene.start("fin", {
         cantBolas: this.cantBolas,
