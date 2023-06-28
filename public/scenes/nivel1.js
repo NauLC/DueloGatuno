@@ -20,24 +20,24 @@ export default class nivel1 extends Phaser.Scene {
       // todo / para hacer: texto de puntaje
       const map = this.make.tilemap({ key: "map" });
       
-      const capaFondo = map.addTilesetImage("fondo2.0", "tilesfondo");
-      const capaPlataforma = map.addTilesetImage(
-        "platforma",
-        "tilesPlataforma"
-      );
-  
-      
-      const fondoLayer = map.createLayer("fondo", capaFondo, 0, 0);
-      const plataformaLayer = map.createLayer("platforma", capaPlataforma, 0, 0);
-      const objectosLayer = map.getObjectLayer("objects");
+      const capaFondo = map.addTilesetImage("fondo", "tilesFondo");
+    const capaPlataform = map.addTilesetImage(
+      "platforma",
+      "tilesPlataforma"
+    );
+
+    
+    const fondoLayer = map.createLayer("background", capaFondo, 0, 0);
+    const plataformaLayer = map.createLayer("platform", capaPlataform, 0, 0);
+    const objectosLayer = map.getObjectLayer("objects");
   
       plataformaLayer.setCollisionByProperty({ collision: true });
   
       console.log("spawn point player", objectosLayer);
   
       // crear el jugador
-      // Find in the Object Layer, the name "dude" and get position
-      let spawnPoint = map.findObject("objetos", (obj) => obj.name === "player");
+     
+      let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
       this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatoN");

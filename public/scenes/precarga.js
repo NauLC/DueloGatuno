@@ -1,4 +1,4 @@
-export default class Precarga extends Phaser.Scene {
+export default class precarga extends Phaser.Scene {
     // escena para optimiozar tiempos
     // carga el preload solo una vez y sirve para todo el juego
     constructor() {
@@ -8,19 +8,19 @@ export default class Precarga extends Phaser.Scene {
   
     preload() {
       // load assets
-      this.load.tilemapTiledJSON("map", "./public/timelap/level1.json");
+      this.load.tilemapTiledJSON("map", "./public/tilemap/level1.json");
       this.load.image("bola", "./public/assets/bola.png");
       this.load.image("menu", "./public/assets/menu.png");
       this.load.image("plato", "./public/assets/plato.png");
       this.load.image("cuchillo", "./public/assets/cuchillo.png");
-      this.load.image("bola", "./public/assets/bola.png");
+      
       this.load.image("botomcredito", "./public/assets/botomcredito.png");
       this.load.image("botompress", "./public/assets/botompress.png");
       this.load.image("botonAjustes", "./public/assets/botonAjustes.png");
       this.load.image("mate", "./public/assets/mate.png");
-      this.load.image("fondo", "./public/assets/fondo2.0.png");
+      this.load.image("fondo", "./public/assets/fondo.png");
       this.load.image("plataforma", "./public/assets/plataforma.png");
-      this.load.spritesheet("gatoN", "./public/images/gatoN.png", {
+      this.load.spritesheet("gatoN", "./public/assets/gatoN.png", {
         frameWidth: 32,
         frameHeight: 48,
       });

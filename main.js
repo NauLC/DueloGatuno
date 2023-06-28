@@ -1,9 +1,9 @@
 import nivel1 from "./public/scenes/nivel1.js";
-import Precarga from "./public/scenes/precarga.js";
-//import Win from "./public/scenes/Win.js";
-//import GameOver from "./public/scenes/GameOver.js";
+import precarga from "./public/scenes/precarga.js";
+import Win from "./public/scenes/Win.js";
+import GameOver from "./public/scenes/GameOver.js";
 import menu from "./public/scenes/menu.js";
-
+import fin from "./public/scenes/fin.js"
 // Create a new Phaser config object
 const config = {
   type: Phaser.AUTO,
@@ -31,7 +31,7 @@ const config = {
   // List of scenes to load
   // Only the first scene will be shown
   // Remember to import the scene before adding it to the list
-  scene: [Precarga,menu, nivel1,],
+  scene: [precarga,menu,Win,GameOver,fin, nivel1,]
 };
 
 // Create a new Phaser game instance
