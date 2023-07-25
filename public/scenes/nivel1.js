@@ -13,7 +13,7 @@ export default class nivel1 extends Phaser.Scene {
       this.isWin = false
       this.gameOver = false
       console.log("Prueba !");
-      this.cantBolas = datos.datos;
+      this.cantBolas = 0 ;
     }
   
     create() {
@@ -40,7 +40,7 @@ export default class nivel1 extends Phaser.Scene {
       let spawnPoint = map.findObject("objects", (obj) => obj.name === "player");
       console.log(spawnPoint);
       // The player and its settings
-      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gato");
+      this.jugador = this.physics.add.sprite(spawnPoint.x, spawnPoint.y, "gatt");
       this.jugador.setBounce(0.1);
       this.jugador.setCollideWorldBounds(true);
   
@@ -127,7 +127,7 @@ export default class nivel1 extends Phaser.Scene {
       this.cantidadBolasTexto = this.add.text(
         15,
         15,
-        `Bolas recolectadas: 0`,
+        `Bolas : 0`,
         { fontSize: "15px", fill: "#FFFFFF" }
       );
   
@@ -187,21 +187,22 @@ export default class nivel1 extends Phaser.Scene {
       }
     }
   
-    recolectarBola(jugador, bolas) {
+    recolectarBolas(jugador, bolas) {
       bolas.disableBody(true, true);
   
       // todo / para hacer: sumar puntaje
-      
-      if (this.bolas.getTotalUsed() === 0) {
-        this.salida.visible = true;
-      }
+      //.cantidadBolas = this.cantidadBolas + 1;
+      //if (this.bolas.getTotalUsed() === 0) {
+        //this.salida.visible = true;
+      //}
   
       this.cantidadBolas++;
   
       this.cantidadBolasTexto.setText(
-        "Bolas recolectadas: " + this.cantidadBolas
+        "Bolas : " + this.cantidadBolas
       );
     }
+    
     platokill(jugador, platos) {
       this.scene.restart();
     }
